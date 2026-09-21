@@ -1,7 +1,9 @@
-# OVAN Camera V4.3.0 — NIGHT SIGHT
+# OVAN Camera 4.3.0 — GitHub Ready
 
-Android Studio project siap di-upload ke GitHub.
+Upload the contents of this folder to a GitHub repository. Do NOT deploy this Android project to Railway.
 
-Fitur: Night Sight 5-frame averaging, Photo, kamera depan/belakang, flash/torch, UI kamera gelap, penyimpanan Pictures/OVAN Camera, minSdk 21.
+GitHub Actions is already included at `.github/workflows/ovan-camera-apk.yml`.
 
-Catatan: ini computational photography dasar, bukan pipeline proprietary Google GCam HDR+/Super Resolution. Hasil bergantung pada sensor dan dukungan perangkat.
+After upload, open **Actions → Build OVAN Camera APK**. A successful run creates the artifact **OVAN-Camera-debug-apk**, containing `app-debug.apk`.
+
+Features: Night Sight 5-frame capture and averaging, Photo, front/back camera, torch, basic Portrait/Video buttons, dark camera UI. Minimum Android 5.0.
