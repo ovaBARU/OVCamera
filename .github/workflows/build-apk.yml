@@ -13,10 +13,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
@@ -41,12 +41,13 @@ jobs:
       - name: Build Debug APK
         run: gradle assembleDebug --stacktrace
 
-      - name: Find APK
+      - name: Check APK
         run: |
-          echo "=== APK FILES ==="
-          find . -type f -name "*.apk" -print
+          echo "=== APK OUTPUT ==="
+          find app/build/outputs -type f -name "*.apk" -print
+          ls -lah app/build/outputs/apk/debug/
 
-      - name: Upload APK
+      - name: Upload OVAN Camera APK
         uses: actions/upload-artifact@v4
         with:
           name: OVAN-Camera-APK
