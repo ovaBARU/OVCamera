@@ -23,20 +23,22 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platform-tools
+            platforms;android-35
+            build-tools;35.0.0
 
-      - name: Install Android SDK packages
-        run: |
-          sdkmanager "platform-tools"
-          sdkmanager "platforms;android-35"
-          sdkmanager "build-tools;35.0.0"
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses || true
 
       - name: Make Gradle executable
         run: chmod +x gradlew
 
-      - name: Build APK
+      - name: Build OVAN Camera APK
         run: ./gradlew assembleDebug --stacktrace
 
-      - name: Upload APK
+      - name: Upload OVAN Camera APK
         uses: actions/upload-artifact@v4
         with:
           name: OVAN-Camera-debug-apk
